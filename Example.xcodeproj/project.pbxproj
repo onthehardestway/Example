@@ -21,6 +21,8 @@
 		9620612418D88BBD00FBAB28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9620610618D88BBD00FBAB28 /* UIKit.framework */; };
 		9620612C18D88BBD00FBAB28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9620612A18D88BBD00FBAB28 /* InfoPlist.strings */; };
 		9620612E18D88BBD00FBAB28 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9620612D18D88BBD00FBAB28 /* ExampleTests.m */; };
+		96D3A89D18D9D4C400BF9C17 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */; };
+		96D3A8A018D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		9620612918D88BBD00FBAB28 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		9620612B18D88BBD00FBAB28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9620612D18D88BBD00FBAB28 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
+		96D3A89B18D9D4C400BF9C17 /* AGLKContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKContext.h; sourceTree = "<group>"; };
+		96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKContext.m; sourceTree = "<group>"; };
+		96D3A89E18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
+		96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 		9620610818D88BBD00FBAB28 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				96D3A89A18D9D4AE00BF9C17 /* AGLK */,
 				9620611118D88BBD00FBAB28 /* LGLAppDelegate.h */,
 				9620611218D88BBD00FBAB28 /* LGLAppDelegate.m */,
 				9620611418D88BBD00FBAB28 /* Main.storyboard */,
@@ -150,6 +157,17 @@
 				9620612A18D88BBD00FBAB28 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		96D3A89A18D9D4AE00BF9C17 /* AGLK */ = {
+			isa = PBXGroup;
+			children = (
+				96D3A89B18D9D4C400BF9C17 /* AGLKContext.h */,
+				96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */,
+				96D3A89E18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.h */,
+				96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */,
+			);
+			path = AGLK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D3A89D18D9D4C400BF9C17 /* AGLKContext.m in Sources */,
 				9620611318D88BBD00FBAB28 /* LGLAppDelegate.m in Sources */,
+				96D3A8A018D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				9620610F18D88BBD00FBAB28 /* main.m in Sources */,
 				9620611918D88BBD00FBAB28 /* LGLViewController.m in Sources */,
 			);
@@ -457,6 +477,7 @@
 				9620613318D88BBD00FBAB28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9620613418D88BBD00FBAB28 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +486,7 @@
 				9620613618D88BBD00FBAB28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
