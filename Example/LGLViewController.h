@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 OnTheEasiestWay. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
 
-@interface LGLViewController : UIViewController
+@interface LGLViewController : GLKViewController
 
 @end
