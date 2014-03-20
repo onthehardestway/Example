@@ -9,6 +9,7 @@
 #import "LGLViewController.h"
 #import "AGLKContext.h"
 #import "AGLKVertexAttribArrayBuffer.h"
+#import "AGLKTextureLoader.h"
 
 @interface LGLViewController ()
 @property (nonatomic, strong) AGLKVertexAttribArrayBuffer *vertexBuffer;
@@ -46,9 +47,9 @@ static SceneVertex vertices[] =
     self.baseEffect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
     
     CGImageRef imageRef = [UIImage imageNamed:@"leaves.gif"].CGImage;
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:imageRef
-                                                               options:nil
-                                                                 error:NULL];
+    AGLKTextureInfo *textureInfo = [AGLKTextureLoader textureWithCGImage:imageRef
+                                                                options:nil
+                                                                  error:NULL];
     self.baseEffect.texture2d0.name = textureInfo.name;
     self.baseEffect.texture2d0.target = textureInfo.target;
     

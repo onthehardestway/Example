@@ -24,6 +24,7 @@
 		96D3A89D18D9D4C400BF9C17 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */; };
 		96D3A8A018D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */; };
 		96F50C4118DB2929006CDE73 /* leaves.gif in Resources */ = {isa = PBXBuildFile; fileRef = 96F50C4018DB2929006CDE73 /* leaves.gif */; };
+		96F50C4418DB2E08006CDE73 /* AGLKTextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F50C4318DB2E08006CDE73 /* AGLKTextureLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		96D3A89E18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
 		96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
 		96F50C4018DB2929006CDE73 /* leaves.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leaves.gif; sourceTree = "<group>"; };
+		96F50C4218DB2E08006CDE73 /* AGLKTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKTextureLoader.h; sourceTree = "<group>"; };
+		96F50C4318DB2E08006CDE73 /* AGLKTextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKTextureLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 				96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */,
 				96D3A89E18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.h */,
 				96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */,
+				96F50C4218DB2E08006CDE73 /* AGLKTextureLoader.h */,
+				96F50C4318DB2E08006CDE73 /* AGLKTextureLoader.m */,
 			);
 			path = AGLK;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96D3A89D18D9D4C400BF9C17 /* AGLKContext.m in Sources */,
+				96F50C4418DB2E08006CDE73 /* AGLKTextureLoader.m in Sources */,
 				9620611318D88BBD00FBAB28 /* LGLAppDelegate.m in Sources */,
 				96D3A8A018D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				9620610F18D88BBD00FBAB28 /* main.m in Sources */,

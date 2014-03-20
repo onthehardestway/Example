@@ -36,7 +36,7 @@
 @interface AGLKVertexAttribArrayBuffer ()
 @property (nonatomic, assign) GLuint glName;
 @property (nonatomic, assign) GLsizeiptr bufferSizeBytes;
-@property (nonatomic, assign) GLsizeiptr stride;
+@property (nonatomic, assign) GLsizei stride;
 @end
 
 @implementation AGLKVertexAttribArrayBuffer
