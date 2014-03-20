@@ -23,6 +23,7 @@
 		9620612E18D88BBD00FBAB28 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9620612D18D88BBD00FBAB28 /* ExampleTests.m */; };
 		96D3A89D18D9D4C400BF9C17 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */; };
 		96D3A8A018D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */; };
+		96F50C4118DB2929006CDE73 /* leaves.gif in Resources */ = {isa = PBXBuildFile; fileRef = 96F50C4018DB2929006CDE73 /* leaves.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKContext.m; sourceTree = "<group>"; };
 		96D3A89E18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
 		96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
+		96F50C4018DB2929006CDE73 /* leaves.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leaves.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		9620610818D88BBD00FBAB28 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				96F50C3F18DB2929006CDE73 /* TextureInfo */,
 				96D3A89A18D9D4AE00BF9C17 /* AGLK */,
 				9620611118D88BBD00FBAB28 /* LGLAppDelegate.h */,
 				9620611218D88BBD00FBAB28 /* LGLAppDelegate.m */,
@@ -168,6 +171,14 @@
 				96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */,
 			);
 			path = AGLK;
+			sourceTree = "<group>";
+		};
+		96F50C3F18DB2929006CDE73 /* TextureInfo */ = {
+			isa = PBXGroup;
+			children = (
+				96F50C4018DB2929006CDE73 /* leaves.gif */,
+			);
+			path = TextureInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +260,7 @@
 			files = (
 				9620611B18D88BBD00FBAB28 /* Images.xcassets in Resources */,
 				9620610D18D88BBD00FBAB28 /* InfoPlist.strings in Resources */,
+				96F50C4118DB2929006CDE73 /* leaves.gif in Resources */,
 				9620611618D88BBD00FBAB28 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,13 +19,14 @@
 
 typedef struct {
     GLKVector3 positionCoords;
+    GLKVector2 textureCoords;
 } SceneVertex;
 
 static SceneVertex vertices[] =
 {
-    {-0.5f, -0.5f, 0.0f},
-    {0.5f, -0.5f, 0.0f},
-    {-0.5f, 0.5f, 0.0f}
+    {{-0.5f, -0.5f, 0.0f}, {0.0, 0.0}},
+    {{0.5f, -0.5f, 0.0f}, {1.0, 0.0}},
+    {{-0.5f, 0.5f, 0.0f}, {0.0, 1.0}}
 };
 
 #define VertexCount (sizeof(vertices) / sizeof(SceneVertex))
@@ -44,6 +45,13 @@ static SceneVertex vertices[] =
     self.baseEffect.useConstantColor = GL_TRUE;
     self.baseEffect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
     
+    CGImageRef imageRef = [UIImage imageNamed:@"leaves.gif"].CGImage;
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:imageRef
+                                                               options:nil
+                                                                 error:NULL];
+    self.baseEffect.texture2d0.name = textureInfo.name;
+    self.baseEffect.texture2d0.target = textureInfo.target;
+    
     ((AGLKContext *)view.context).clearColor = GLKVector4Make(0.0f, 0.0f, 0.0f, 1.0f);
     
     self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]
@@ -61,7 +69,12 @@ static SceneVertex vertices[] =
     
     [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition
                            numberOfCoordinates:3
-                                  attribOffset:0
+                                  attribOffset:offsetof(SceneVertex, positionCoords)
+                                  shouldEnable:YES];
+    
+    [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribTexCoord0
+                           numberOfCoordinates:2
+                                  attribOffset:offsetof(SceneVertex, textureCoords)
                                   shouldEnable:YES];
 
     [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES
