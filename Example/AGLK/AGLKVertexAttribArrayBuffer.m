@@ -36,15 +36,15 @@
 @interface AGLKVertexAttribArrayBuffer ()
 @property (nonatomic, assign) GLuint glName;
 @property (nonatomic, assign) GLsizeiptr bufferSizeBytes;
-@property (nonatomic, assign) GLsizei stride;
+@property (nonatomic, assign) GLsizeiptr stride;
 @end
 
 @implementation AGLKVertexAttribArrayBuffer
 - (id)initWithAttribStride:(GLsizeiptr)stride numberOfVertices:(GLsizei)count data:(const GLvoid *)dataPtr usage:(GLenum)usage
 {
     NSParameterAssert(0 < stride);
-    NSParameterAssert(0 < count);
-    NSParameterAssert(NULL != dataPtr);
+    NSAssert(((NULL != dataPtr) || (0 == count && NULL == dataPtr)),
+              @"data must not be NULL or count > 0");
     
     self = [super init];
     if (self) {
@@ -68,6 +68,29 @@
                      usage);
     }
     return self;
+}
+
+- (void)reinitWithAttribStride:(GLsizeiptr)stride numberOfVertices:(GLsizei)count data:(const GLvoid *)dataPtr
+{
+    NSParameterAssert(0 < stride);
+    NSParameterAssert(0 < count);
+    NSParameterAssert(NULL != dataPtr);
+    NSAssert(0 != self.glName, @"Invalid name");
+
+    self.stride = stride;
+    self.bufferSizeBytes = count * stride;
+
+    // 2. Bind
+    // Tell OpenGL ES to use a buffer for subsequent operations.
+    glBindBuffer(GL_ARRAY_BUFFER, self.glName);
+    
+    // 3. Buffer Data
+    // Tell OpenGL ES to allocate and initialize sufficient contiguous memory for a currently bound buffer—often by copying data from CPU-controlled memory into the allocated memory.
+    glBufferData(GL_ARRAY_BUFFER,
+                 self.bufferSizeBytes,
+                 dataPtr,
+                 GL_DYNAMIC_DRAW);
+    
 }
 
 - (void)prepareToDrawWithAttrib:(GLuint)index numberOfCoordinates:(GLint)count attribOffset:(GLsizeiptr)offset shouldEnable:(BOOL)shouldEnable

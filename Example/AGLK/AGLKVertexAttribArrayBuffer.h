@@ -11,12 +11,16 @@
 @interface AGLKVertexAttribArrayBuffer : NSObject
 @property (nonatomic, readonly) GLuint glName;
 @property (nonatomic, readonly) GLsizeiptr bufferSizeBytes;
-@property (nonatomic, readonly) GLsizei stride;
+@property (nonatomic, readonly) GLsizeiptr stride;
 
 - (id)initWithAttribStride:(GLsizeiptr)stride
           numberOfVertices:(GLsizei)count
                       data:(const GLvoid *)dataPtr
                      usage:(GLenum)usage;
+
+- (void)reinitWithAttribStride:(GLsizeiptr)stride
+              numberOfVertices:(GLsizei)count
+                          data:(const GLvoid *)dataPtr;
 
 - (void)prepareToDrawWithAttrib:(GLuint)index
             numberOfCoordinates:(GLint)count
