@@ -30,4 +30,16 @@
     
     glClear(mask);
 }
+
+- (void)enable:(GLenum)capability
+{
+    [self currentContextCheck];
+    glEnable(capability);
+}
+
+- (void)disable:(GLenum)capability
+{
+    [self currentContextCheck];
+    glDisable(capability);
+}
 @end

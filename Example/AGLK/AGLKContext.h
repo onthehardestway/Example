@@ -11,4 +11,6 @@
 @interface AGLKContext : EAGLContext
 @property (nonatomic, assign) GLKVector4 clearColor;
 - (void)clear:(GLbitfield)mask;
+- (void)enable:(GLenum)capability;
+- (void)disable:(GLenum)capability;
 @end

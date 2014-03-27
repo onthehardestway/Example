@@ -40,6 +40,15 @@
 @end
 
 @implementation AGLKVertexAttribArrayBuffer
++ (void)drawPreparedArraysWithMode:(GLenum)mode
+                  startVertexIndex:(GLint)first
+                  numberOfVertices:(GLsizei)count
+{
+    // 6. Draw
+    // Tell OpenGL ES to render all or part of a scene using data in currently bound and enabled buffers.
+    glDrawArrays(mode, first, count);
+}
+
 - (id)initWithAttribStride:(GLsizeiptr)stride numberOfVertices:(GLsizei)count data:(const GLvoid *)dataPtr usage:(GLenum)usage
 {
     NSParameterAssert(0 < stride);

@@ -23,8 +23,16 @@
 		9620612E18D88BBD00FBAB28 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9620612D18D88BBD00FBAB28 /* ExampleTests.m */; };
 		96D3A89D18D9D4C400BF9C17 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */; };
 		96D3A8A018D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */; };
-		96F50C4118DB2929006CDE73 /* leaves.gif in Resources */ = {isa = PBXBuildFile; fileRef = 96F50C4018DB2929006CDE73 /* leaves.gif */; };
 		96F50C4418DB2E08006CDE73 /* AGLKTextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F50C4318DB2E08006CDE73 /* AGLKTextureLoader.m */; };
+		B940BC6B18E46AA0006B0515 /* Earth512x256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6018E46AA0006B0515 /* Earth512x256.jpg */; };
+		B940BC6C18E46AA0006B0515 /* lowPolyAxesAndModels2.blend in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6118E46AA0006B0515 /* lowPolyAxesAndModels2.blend */; };
+		B940BC6D18E46AA0006B0515 /* lowPolyAxesAndModels2.obj in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6318E46AA0006B0515 /* lowPolyAxesAndModels2.obj */; };
+		B940BC6E18E46AA0006B0515 /* Moon256x128.png in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6418E46AA0006B0515 /* Moon256x128.png */; };
+		B940BC6F18E46AA0006B0515 /* obj2opengl.pl in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6518E46AA0006B0515 /* obj2opengl.pl */; };
+		B940BC7018E46AA0006B0515 /* obj2openglFlippedZ.pl in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6618E46AA0006B0515 /* obj2openglFlippedZ.pl */; };
+		B940BC7118E46AA0006B0515 /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6718E46AA0006B0515 /* ReadMe.txt */; };
+		B940BC7218E46AA0006B0515 /* sphere.blend in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6818E46AA0006B0515 /* sphere.blend */; };
+		B940BC7318E46AA0006B0515 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = B940BC6A18E46AA0006B0515 /* sphere.obj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +69,20 @@
 		96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKContext.m; sourceTree = "<group>"; };
 		96D3A89E18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
 		96D3A89F18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
-		96F50C4018DB2929006CDE73 /* leaves.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leaves.gif; sourceTree = "<group>"; };
 		96F50C4218DB2E08006CDE73 /* AGLKTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKTextureLoader.h; sourceTree = "<group>"; };
 		96F50C4318DB2E08006CDE73 /* AGLKTextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKTextureLoader.m; sourceTree = "<group>"; };
+		B940BC6018E46AA0006B0515 /* Earth512x256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Earth512x256.jpg; sourceTree = "<group>"; };
+		B940BC6118E46AA0006B0515 /* lowPolyAxesAndModels2.blend */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowPolyAxesAndModels2.blend; sourceTree = "<group>"; };
+		B940BC6218E46AA0006B0515 /* lowPolyAxesAndModels2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lowPolyAxesAndModels2.h; sourceTree = "<group>"; };
+		B940BC6318E46AA0006B0515 /* lowPolyAxesAndModels2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lowPolyAxesAndModels2.obj; sourceTree = "<group>"; };
+		B940BC6418E46AA0006B0515 /* Moon256x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon256x128.png; sourceTree = "<group>"; };
+		B940BC6518E46AA0006B0515 /* obj2opengl.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = obj2opengl.pl; sourceTree = "<group>"; };
+		B940BC6618E46AA0006B0515 /* obj2openglFlippedZ.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = obj2openglFlippedZ.pl; sourceTree = "<group>"; };
+		B940BC6718E46AA0006B0515 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
+		B940BC6818E46AA0006B0515 /* sphere.blend */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.blend; sourceTree = "<group>"; };
+		B940BC6918E46AA0006B0515 /* sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphere.h; sourceTree = "<group>"; };
+		B940BC6A18E46AA0006B0515 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		B940BC7518E46D45006B0515 /* AGLK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLK.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +142,7 @@
 		9620610818D88BBD00FBAB28 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				96F50C3F18DB2929006CDE73 /* TextureInfo */,
+				B940BC5F18E46AA0006B0515 /* Resources */,
 				96D3A89A18D9D4AE00BF9C17 /* AGLK */,
 				9620611118D88BBD00FBAB28 /* LGLAppDelegate.h */,
 				9620611218D88BBD00FBAB28 /* LGLAppDelegate.m */,
@@ -168,6 +187,7 @@
 		96D3A89A18D9D4AE00BF9C17 /* AGLK */ = {
 			isa = PBXGroup;
 			children = (
+				B940BC7518E46D45006B0515 /* AGLK.h */,
 				96D3A89B18D9D4C400BF9C17 /* AGLKContext.h */,
 				96D3A89C18D9D4C400BF9C17 /* AGLKContext.m */,
 				96D3A89E18D9D84400BF9C17 /* AGLKVertexAttribArrayBuffer.h */,
@@ -178,12 +198,22 @@
 			path = AGLK;
 			sourceTree = "<group>";
 		};
-		96F50C3F18DB2929006CDE73 /* TextureInfo */ = {
+		B940BC5F18E46AA0006B0515 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				96F50C4018DB2929006CDE73 /* leaves.gif */,
+				B940BC6018E46AA0006B0515 /* Earth512x256.jpg */,
+				B940BC6118E46AA0006B0515 /* lowPolyAxesAndModels2.blend */,
+				B940BC6218E46AA0006B0515 /* lowPolyAxesAndModels2.h */,
+				B940BC6318E46AA0006B0515 /* lowPolyAxesAndModels2.obj */,
+				B940BC6418E46AA0006B0515 /* Moon256x128.png */,
+				B940BC6518E46AA0006B0515 /* obj2opengl.pl */,
+				B940BC6618E46AA0006B0515 /* obj2openglFlippedZ.pl */,
+				B940BC6718E46AA0006B0515 /* ReadMe.txt */,
+				B940BC6818E46AA0006B0515 /* sphere.blend */,
+				B940BC6918E46AA0006B0515 /* sphere.h */,
+				B940BC6A18E46AA0006B0515 /* sphere.obj */,
 			);
-			path = TextureInfo;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +293,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B940BC6B18E46AA0006B0515 /* Earth512x256.jpg in Resources */,
+				B940BC6F18E46AA0006B0515 /* obj2opengl.pl in Resources */,
+				B940BC6E18E46AA0006B0515 /* Moon256x128.png in Resources */,
+				B940BC7218E46AA0006B0515 /* sphere.blend in Resources */,
 				9620611B18D88BBD00FBAB28 /* Images.xcassets in Resources */,
 				9620610D18D88BBD00FBAB28 /* InfoPlist.strings in Resources */,
-				96F50C4118DB2929006CDE73 /* leaves.gif in Resources */,
 				9620611618D88BBD00FBAB28 /* Main.storyboard in Resources */,
+				B940BC7018E46AA0006B0515 /* obj2openglFlippedZ.pl in Resources */,
+				B940BC6D18E46AA0006B0515 /* lowPolyAxesAndModels2.obj in Resources */,
+				B940BC7118E46AA0006B0515 /* ReadMe.txt in Resources */,
+				B940BC7318E46AA0006B0515 /* sphere.obj in Resources */,
+				B940BC6C18E46AA0006B0515 /* lowPolyAxesAndModels2.blend in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
