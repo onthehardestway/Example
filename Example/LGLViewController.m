@@ -8,13 +8,38 @@
 
 #import "LGLViewController.h"
 #import "AGLK/AGLK.h"
-#import "sphere.h"
+#import "lowPolyAxesAndModels2.h"
+
+typedef enum {
+    Scene_Transform_Type_Translate,
+    Scene_Transform_Type_Rotate,
+    Scene_Transform_Type_Scale,
+} SceneTransformType;
+
+typedef enum {
+    Scene_Transform_Axis_X = 0,
+    Scene_Transform_Axis_Y,
+    Scene_Transform_Axis_Z,
+} SceneTransformAxis;
+
+typedef struct {
+    SceneTransformType type;
+    SceneTransformAxis axis;
+    GLfloat value;
+} SceneTransform;
 
 @interface LGLViewController ()
+#pragma mark - IBoutlet
+
+
+@property (nonatomic, strong) GLKBaseEffect *baseEffect;
 @property (nonatomic, strong) AGLKVertexAttribArrayBuffer *positionBuffer;
 @property (nonatomic, strong) AGLKVertexAttribArrayBuffer *normalBuffer;
-@property (nonatomic, strong) AGLKVertexAttribArrayBuffer *textureBuffer;
-@property (nonatomic, strong) GLKBaseEffect *baseEffect;
+
+
+@property (nonatomic, assign) SceneTransform firstTransform;
+@property (nonatomic, assign) SceneTransform secondTransform;
+@property (nonatomic, assign) SceneTransform thirdTransform;
 @end
 
 @implementation LGLViewController
@@ -23,54 +48,53 @@
 {
     [super viewDidLoad];
     
-    NSAssert([self.view isKindOfClass:[GLKView class]], @"view should be GLKView");
+    NSAssert([self.view isKindOfClass:[GLKView class]], @"view must be GLKView");
     GLKView *view = (GLKView *)self.view;
-    
-    view.context = [[AGLKContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    [AGLKContext setCurrentContext:view.context];
-
-    ((AGLKContext *)view.context).clearColor = GLKVector4Make(0.0, 0.0, 0.0, 1.0);
     view.drawableDepthFormat = GLKViewDrawableDepthFormat16;
     
+    AGLKContext *context = [[AGLKContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    view.context = context;
+    [AGLKContext setCurrentContext:context];
+    
+    context.clearColor = GLKVector4Make(0.0, 0.0, 0.0, 1.0);
+    [context enable:GL_DEPTH_TEST];
+    
     self.baseEffect = [[GLKBaseEffect alloc] init];
-
-    self.baseEffect.light0.enabled = YES;
-    self.baseEffect.light0.diffuseColor = GLKVector4Make(0.7, 0.7, 0.7, 1.0);
-    self.baseEffect.light0.ambientColor = GLKVector4Make(0.2, 0.2, 0.2, 1.0);
-    self.baseEffect.light0.position = GLKVector4Make(1.0f, 0.0f, -0.8f, 0.0f);
+    self.baseEffect.light0.enabled = GL_TRUE;
+    self.baseEffect.light0.ambientColor = GLKVector4Make(0.4, 0.4, 0.4, 1.0);
+    self.baseEffect.light0.position = GLKVector4Make(1.0, 0.8, 0.4, 0);
     
-    UIImage *texture = [UIImage imageNamed:@"Earth512x256.jpg"];
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:texture.CGImage options:@{GLKTextureLoaderOriginBottomLeft: [NSNumber numberWithBool:YES]} error:NULL];
-    self.baseEffect.texture2d0.target = textureInfo.target;
-    self.baseEffect.texture2d0.name = textureInfo.name;
+    // Rotate about x-axis 30°
+    GLKMatrix4 modelViewMatrix = GLKMatrix4MakeRotation(GLKMathDegreesToRadians(30), 1.0, 0.0, 0.0);
+    // Rotate about y-axis -30°
+    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(-30), 0.0, 1.0, 0.0);
+    modelViewMatrix = GLKMatrix4Translate(modelViewMatrix, -0.25, 0.00, -0.20);
+    self.baseEffect.transform.modelviewMatrix = modelViewMatrix;
     
-    self.positionBuffer = 
-    [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:3 * sizeof(GLfloat)
-                                             numberOfVertices:sizeof(sphereVerts) / (3 * sizeof(GLfloat))
-                                                         data:sphereVerts
-                                                        usage:GL_STATIC_DRAW];
+    size_t stride = sizeof(GLfloat) * 3;
+    self.positionBuffer = [[AGLKVertexAttribArrayBuffer alloc]
+                           initWithAttribStride:stride
+                           numberOfVertices:sizeof(lowPolyAxesAndModels2Verts) / stride
+                           data:lowPolyAxesAndModels2Verts
+                           usage:GL_STATIC_DRAW];
     
-    self.normalBuffer = 
-    [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:3 * sizeof(GLfloat)
-                                             numberOfVertices:sizeof(sphereNormals) / (3 * sizeof(GLfloat))
-                                                         data:sphereNormals
-                                                        usage:GL_STATIC_DRAW];
+    self.normalBuffer = [[AGLKVertexAttribArrayBuffer alloc]
+                         initWithAttribStride:stride numberOfVertices:sizeof(lowPolyAxesAndModels2Normals) / stride
+                         data:lowPolyAxesAndModels2Normals
+                         usage:GL_STATIC_DRAW];
     
-    self.textureBuffer = 
-    [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:2 * sizeof(GLfloat)
-                                             numberOfVertices:sizeof(sphereTexCoords) / (2 * sizeof(GLfloat))
-                                                         data:sphereTexCoords
-                                                        usage:GL_STATIC_DRAW];
-    
-    [((AGLKContext *)view.context) enable:GL_DEPTH_TEST];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
+    const GLfloat aspectRatio = (GLfloat)view.drawableWidth / (GLfloat)view.drawableHeight;
+    self.baseEffect.transform.projectionMatrix = GLKMatrix4MakeOrtho(-0.5 * aspectRatio, 0.5 * aspectRatio, -0.5, 0.5, -5.0, 5.0);
+    self.baseEffect.light0.diffuseColor = GLKVector4Make(1.0, 1.0, 1.0, 1.0);
     [self.baseEffect prepareToDraw];
     
     [((AGLKContext *)view.context) clear:GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT];
     
+    size_t stride = sizeof(GLfloat) * 3;
     [self.positionBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition
                              numberOfCoordinates:3
                                     attribOffset:0
@@ -81,32 +105,14 @@
                                   attribOffset:0
                                   shouldEnable:YES];
     
-    [self.textureBuffer prepareToDrawWithAttrib:GLKVertexAttribTexCoord0
-                            numberOfCoordinates:2
-                                   attribOffset:0
-                                   shouldEnable:YES];
-    
-    CGFloat aspectRatio = (CGFloat)view.drawableWidth / (CGFloat)view.drawableHeight;
-    self.baseEffect.transform.projectionMatrix = GLKMatrix4MakeScale(1.0, aspectRatio, 1.0);
-
-    
     [AGLKVertexAttribArrayBuffer drawPreparedArraysWithMode:GL_TRIANGLES
                                            startVertexIndex:0
-                                           numberOfVertices:sizeof(sphereVerts) / (3 * sizeof(GLfloat))];
+                                           numberOfVertices:sizeof(lowPolyAxesAndModels2Verts) / stride];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidLoad];
-    
-    GLKView *view = (GLKView *)self.view;
-    [AGLKContext setCurrentContext:view.context];
-    
-    self.positionBuffer = nil;
-    self.normalBuffer = nil;
-    self.textureBuffer = nil;
-    
-    view.context = nil;
-    [AGLKContext setCurrentContext:nil];
 }
+
 @end

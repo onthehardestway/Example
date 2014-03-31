@@ -42,4 +42,9 @@
     [self currentContextCheck];
     glDisable(capability);
 }
+
+- (void)setBlendSourceFunction:(GLenum)sfactor destinationFunction:(GLenum)dfactor
+{
+    glBlendFunc(sfactor, dfactor);
+}
 @end
